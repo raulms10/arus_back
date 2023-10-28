@@ -11,6 +11,6 @@ import co.com.adn.infraestructura.entidad.AdministradoraSaludEntity;
 @Repository
 public interface AdministradoraSaludJPA extends JpaRepository<AdministradoraSaludEntity, String> {
 	
-	@Query("SELECT * FROM AdministradoraSaludEntity")
+	@Query("SELECT a FROM AdministradoraSaludEntity a")
 	List<AdministradoraSaludEntity> findAlls();
 }

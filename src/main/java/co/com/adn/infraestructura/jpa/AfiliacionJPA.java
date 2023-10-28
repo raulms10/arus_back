@@ -11,6 +11,6 @@ import co.com.adn.infraestructura.entidad.AfiliacionEntity;
 @Repository
 public interface AfiliacionJPA extends JpaRepository<AfiliacionEntity, String> {
 	
-	@Query("SELECT * FROM AfiliacionEntity")
+	@Query("SELECT a FROM AfiliacionEntity a")
 	List<AfiliacionEntity> findAlls();
 }

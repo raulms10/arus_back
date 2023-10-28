@@ -25,7 +25,4 @@ public class TipoDocumentoEntity implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	public TipoDocumentoEntity() { }
-	
-	
 }

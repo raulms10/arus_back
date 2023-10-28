@@ -12,6 +12,6 @@ import co.com.adn.infraestructura.entidad.AdministradoraPensionEntity;
 @Repository
 public interface AdministradoraPensionJPA extends JpaRepository<AdministradoraPensionEntity, String>{
 	
-	@Query("SELECT * FROM AdministradoraPension")
+	@Query("SELECT a FROM AdministradoraPensionEntity a")
 	List<AdministradoraPensionEntity> findAlls();
 }

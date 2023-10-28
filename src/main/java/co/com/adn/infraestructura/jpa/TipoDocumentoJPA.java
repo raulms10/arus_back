@@ -11,7 +11,7 @@ import co.com.adn.infraestructura.entidad.TipoDocumentoEntity;
 @Repository
 public interface TipoDocumentoJPA extends JpaRepository<TipoDocumentoEntity, String> {
 	
-	@Query("SELECT * FROM TipoDocumentoEntity")
+	@Query("SELECT t FROM TipoDocumentoEntity t")
 	List<TipoDocumentoEntity> findAlls();
 
 }

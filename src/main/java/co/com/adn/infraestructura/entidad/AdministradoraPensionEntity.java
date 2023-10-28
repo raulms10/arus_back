@@ -25,7 +25,4 @@ public class AdministradoraPensionEntity implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	public AdministradoraPensionEntity() {	}
-	
-	
 }
