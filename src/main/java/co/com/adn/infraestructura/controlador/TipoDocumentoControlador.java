@@ -32,7 +32,6 @@ public class TipoDocumentoControlador {
 	
 	@GetMapping
 	public List<ComandoTipoDocumento> listar() {
-		System.out.println("Consultadndo....");
 		return this.manejadorListarTipoDocumento.listar();
 	}
 	
