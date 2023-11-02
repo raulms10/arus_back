@@ -21,7 +21,6 @@ public class AdministradoraSaludControlador {
 	
 	public AdministradoraSaludControlador(ManejadorCrearAdministradoraSalud manejadorCrearAdministradoraSalud,
 			ManejadorListarAdministradoraSalud manejadorListarAdministradoraSalud) {
-		super();
 		this.manejadorCrearAdministradoraSalud = manejadorCrearAdministradoraSalud;
 		this.manejadorListarAdministradoraSalud = manejadorListarAdministradoraSalud;
 	}
@@ -29,6 +28,13 @@ public class AdministradoraSaludControlador {
 	@PostMapping
 	public void crear(@RequestBody ComandoAdministradoraSalud comandoAdministradoraSalud) {
 		this.manejadorCrearAdministradoraSalud.ejecutar(comandoAdministradoraSalud);
+	}
+	
+	@PostMapping(path = "/todos")
+	public void crearTodos(@RequestBody List<ComandoAdministradoraSalud> listComandoAdministradoraSalud) {
+		for (ComandoAdministradoraSalud comandoAdministradoraSalud : listComandoAdministradoraSalud) {
+			this.manejadorCrearAdministradoraSalud.ejecutar(comandoAdministradoraSalud);
+		}
 	}
 	
 	@GetMapping

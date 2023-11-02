@@ -17,7 +17,9 @@ public class ComandoAfiliado {
 		this.primerApellido = primerApellido;
 		this.segundoApellido = segundoApellido;
 	}
+	
 	public ComandoAfiliado() { }
+	
 	public ComandoTipoDocumento getTipoDocumento() {
 		return tipoDocumento;
 	}

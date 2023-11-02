@@ -4,6 +4,7 @@ public class ComandoTipoDocumento {
 	
 	private String codigo;
 	private String nombre;
+	
 	public ComandoTipoDocumento(String codigo, String nombre) {
 		this.codigo = codigo;
 		this.nombre = nombre;

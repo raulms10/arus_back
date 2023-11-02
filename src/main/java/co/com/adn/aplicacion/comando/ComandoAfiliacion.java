@@ -4,15 +4,17 @@ import java.util.Date;
 
 public class ComandoAfiliacion {
 
+	private String codigo;
 	private ComandoAfiliado afiliado;
 	private ComandoAdministradoraSalud administradoraSalud;
 	private Date fechaAfiliacionSalud;
 	private ComandoAdministradoraPension administradoraPension;
 	private Date fechaAfiliacionPension;
 
-	public ComandoAfiliacion(ComandoAfiliado afiliado, ComandoAdministradoraSalud administradoraSalud,
+	public ComandoAfiliacion(String codigo, ComandoAfiliado afiliado, ComandoAdministradoraSalud administradoraSalud,
 			Date fechaAfiliacionSalud, ComandoAdministradoraPension administradoraPension,
 			Date fechaAfiliacionPension) {
+		this.codigo = codigo;
 		this.afiliado = afiliado;
 		this.administradoraSalud = administradoraSalud;
 		this.fechaAfiliacionSalud = fechaAfiliacionSalud;
@@ -20,7 +22,16 @@ public class ComandoAfiliacion {
 		this.fechaAfiliacionPension = fechaAfiliacionPension;
 	}
 
-	public ComandoAfiliacion() { }
+	public ComandoAfiliacion() {
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
 	public ComandoAfiliado getAfiliado() {
 		return afiliado;

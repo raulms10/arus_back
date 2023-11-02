@@ -31,6 +31,13 @@ public class AdministradoraPensionControlador {
 		this.manejadorCrearAdministradoraPension.ejecutar(comandoAdministradoraPension);
 	}
 	
+	@PostMapping(path = "/todos")
+	public void crearTodos(@RequestBody List<ComandoAdministradoraPension> listComandoAdministradoraPension) {
+		for (ComandoAdministradoraPension comandoAdministradoraPension : listComandoAdministradoraPension) {
+			this.manejadorCrearAdministradoraPension.ejecutar(comandoAdministradoraPension);
+		}
+	}
+	
 	@GetMapping
 	public List<ComandoAdministradoraPension> listar() {
 		return this.manejadorListarAdministradoraPension.listar();

@@ -30,6 +30,13 @@ public class TipoDocumentoControlador {
 		this.manejadorCrearTipoDocumento.ejecutar(comandoTipoDocumento);
 	}
 	
+	@PostMapping(path = "/todos")
+	public void crearTodos(@RequestBody List<ComandoTipoDocumento> listComandoTipoDocumentos) {
+		for (ComandoTipoDocumento comandoTipoDocumento : listComandoTipoDocumentos) {
+			this.manejadorCrearTipoDocumento.ejecutar(comandoTipoDocumento);
+		}
+	}
+	
 	@GetMapping
 	public List<ComandoTipoDocumento> listar() {
 		return this.manejadorListarTipoDocumento.listar();

@@ -1,10 +1,10 @@
 package co.com.adn.dominio.modelo;
 
-import java.util.Calendar;
+import java.text.ParseException;
 import java.util.Date;
 
 import co.com.adn.dominio.validador.ValidadorParametro;
-
+import co.com.adn.infraestructura.compartido.FormateadorFecha;
 /**
  * @author raul.martinez
  */
@@ -33,7 +33,12 @@ public class Afiliacion {
 		ValidadorParametro.validarObligatorio(fechaAfiliacionPension, LA_FECHA_AFILIACION_PENSION_ES_DATO_OBLIGATORIO);
 		
 		//Se crea la Afiliacion
-		this.codigo = afiliado.getNumeroDocumento() + "_" + Calendar.getInstance().toString();
+		try {
+			this.codigo = afiliado.getNumeroDocumento() + "_" + FormateadorFecha.getDate(new Date());
+		} catch (ParseException e) {
+			this.codigo = afiliado.getNumeroDocumento();
+			// e.printStackTrace();
+		}
 		this.afiliado = afiliado;
 		this.administradoraSalud = administradoraSalud;
 		this.fechaAfiliacionSalud = fechaAfiliacionSalud;
