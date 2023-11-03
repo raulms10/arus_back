@@ -8,6 +8,7 @@ public class ComandoAfiliado {
 	private String segundoNombre;
 	private String primerApellido;
 	private String segundoApellido;
+	
 	public ComandoAfiliado(ComandoTipoDocumento tipoDocumento, String numeroDocumento, String primerNombre,
 			String segundoNombre, String primerApellido, String segundoApellido) {
 		this.tipoDocumento = tipoDocumento;

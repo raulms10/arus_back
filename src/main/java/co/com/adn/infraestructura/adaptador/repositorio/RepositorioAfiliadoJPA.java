@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.com.adn.dominio.modelo.Afiliado;
-import co.com.adn.dominio.repositorio.RepositorioAfliliado;
+import co.com.adn.dominio.repositorio.RepositorioAfiliado;
 import co.com.adn.infraestructura.entidad.AfiliadoEntity;
 import co.com.adn.infraestructura.jpa.AfiliadoJPA;
 
 @Repository
-public class RepositorioAfiliadoJPA implements RepositorioAfliliado {
+public class RepositorioAfiliadoJPA implements RepositorioAfiliado {
 
 	@Autowired
 	private ModelMapper modelMapper;

@@ -1,4 +1,4 @@
-package com.adn.arus.dominio.entidad.testdatabuilder;
+package com.adn.arus.dominio.testdatabuilder;
 
 import co.com.adn.dominio.modelo.AdministradoraSalud;
 

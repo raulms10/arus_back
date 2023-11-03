@@ -1,7 +1,7 @@
 package co.com.adn.dominio.servicio.afiliado;
 
 import co.com.adn.dominio.modelo.Afiliado;
-import co.com.adn.dominio.repositorio.RepositorioAfliliado;
+import co.com.adn.dominio.repositorio.RepositorioAfiliado;
 import co.com.adn.dominio.validador.ValidadorTipoYNumeroDocumento;
 
 /**
@@ -9,9 +9,9 @@ import co.com.adn.dominio.validador.ValidadorTipoYNumeroDocumento;
  */
 public class ServicioCrearAfiliado {
 	
-	private RepositorioAfliliado repositorioAfliliado;
+	private RepositorioAfiliado repositorioAfliliado;
 
-	public ServicioCrearAfiliado(RepositorioAfliliado repositorioAfliliado) {
+	public ServicioCrearAfiliado(RepositorioAfiliado repositorioAfliliado) {
 		this.repositorioAfliliado = repositorioAfliliado;
 	}
 

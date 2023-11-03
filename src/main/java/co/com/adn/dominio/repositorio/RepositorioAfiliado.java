@@ -5,7 +5,7 @@ import co.com.adn.dominio.modelo.Afiliado;
 /**
  * @author raul.martinez
  */
-public interface RepositorioAfliliado {
+public interface RepositorioAfiliado {
 	
 	/**
 	 * Permite crear los Afiliados

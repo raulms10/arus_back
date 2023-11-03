@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import com.adn.arus.dominio.BasePrueba;
-import com.adn.arus.dominio.entidad.testdatabuilder.AfiliacionTestDataBuilder;
+import com.adn.arus.dominio.testdatabuilder.AfiliacionTestDataBuilder;
 
 import co.com.adn.dominio.excepcion.ExcepcionValorObligatorio;
 import co.com.adn.dominio.modelo.Afiliacion;
