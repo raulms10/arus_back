@@ -1,5 +1,7 @@
 package co.com.adn.dominio.servicio.afiliacion;
 
+import static org.mockito.Mockito.times;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,7 @@ class ServicioListarAfiliacionTest {
 		// Act
 		List<ComandoAfiliacion> listAfiliacion = servicioListarAfiliacion.listar();
 		// Assert
+		Mockito.verify(repositorioAfiliacion, times(1)).listar(); // Siempre utilizar un verify con un when
 		Assert.assertEquals(1, listAfiliacion.size());
 		Assert.assertEquals(listComandoAfiliacions.get(0).getCodigo(), listAfiliacion.get(0).getCodigo());
 	}
