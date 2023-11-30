@@ -1,0 +1,41 @@
+package drools;
+
+import java.text.SimpleDateFormat;
+import co.com.adn.dominio.modelo.Afiliacion;
+import co.com.adn.dominio.excepcion.ExcepcionReglaDroolsAfiliacion;
+
+/*
+rule "Registrar la clase ExcepcionReglaDroolsAfiliacion"
+when
+then
+    System.out.println("Registrando la clase ExcepcionReglaDroolsAfiliacion");
+    registry.addType(ExcepcionReglaDroolsAfiliacion.class);
+end
+*/
+
+rule "Registro de persona indicando la administradora de pensión AFP003 Colpensiones y la fecha de afiliación es menor a 2021/01/01"
+	when 
+		$afiliacion: Afiliacion(administradoraPension.codigo == "AFP003", fechaAfiliacionPension < new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2021"))
+	then
+		System.out.println("Ejecutada regla 1");
+		//registry.addType(ExcepcionReglaDroolsAfiliacion.class);
+		throw new ExcepcionReglaDroolsAfiliacion("Para la administradora de pensión AFP003 solo es posible afiliarse después de  2020/12/31");
+end
+
+rule "Registro de persona con tipo de documento RC Registro civil, y con las administradoras de EPS003 Coomeva ó EPS004 Medimas"
+	when 
+		$afiliacion: Afiliacion(afiliado.tipoDocumento.codigo == "RC", administradoraSalud.codigo == "EPS003" || administradoraSalud.codigo == "EPS004")
+	then
+		System.out.println("Ejecutada regla 2");
+		//registry.addType(ExcepcionReglaDroolsAfiliacion.class);
+		throw new ExcepcionReglaDroolsAfiliacion("Para una persona con tipo de documento 'RC' (Registro civil) no es permitido afiliarse a las EPS: EPS003 - Coomeva, EPS004 - Medimas");
+end
+
+rule "Registro de persona con la administradora de salud EPS002  Sura EPS y la administradora de pensión es diferente de AFP001 Protección"
+	when
+		$afiliacion: Afiliacion(administradoraSalud.codigo  == "EPS002", administradoraPension.codigo  != "AFP001")
+	then
+		System.out.println("Ejecutada regla 3");
+		//registry.addType(ExcepcionReglaDroolsAfiliacion.class);
+		throw new ExcepcionReglaDroolsAfiliacion("Las personas que se afilien a la administradora 'EPS002 - Sura EPS' solo pueden afiliarse a la administradora de pensión 'AFP001 - Protección");
+end

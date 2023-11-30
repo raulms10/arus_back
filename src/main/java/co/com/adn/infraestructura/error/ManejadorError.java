@@ -2,6 +2,7 @@ package co.com.adn.infraestructura.error;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.drools.runtime.rule.ConsequenceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ public class ManejadorError {
     public ManejadorError() {
     	CODIGOS_ESTADO.put(ExcepcionValorObligatorio.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     	CODIGOS_ESTADO.put(ExcepcionTipoYNumeroDocumento.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+    	CODIGOS_ESTADO.put(ConsequenceException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
     
     @ExceptionHandler(Exception.class)
@@ -31,7 +33,7 @@ public class ManejadorError {
     	ResponseEntity<Error> resultado;
 
         String excepcionNombre = exception.getClass().getSimpleName();
-        String mensaje = exception.getMessage();
+        String mensaje = exception.getCause() == null ? exception.getMessage() : exception.getCause().getMessage();
         Integer codigo = CODIGOS_ESTADO.get(excepcionNombre);
 
         if (codigo != null) {

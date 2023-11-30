@@ -3,6 +3,7 @@ package co.com.adn.dominio.modelo;
 import java.text.ParseException;
 import java.util.Date;
 
+import co.com.adn.dominio.drools.DroolsConfig;
 import co.com.adn.dominio.validador.ValidadorParametro;
 import co.com.adn.infraestructura.compartido.FormateadorFecha;
 /**
@@ -44,6 +45,8 @@ public class Afiliacion {
 		this.fechaAfiliacionSalud = fechaAfiliacionSalud;
 		this.administradoraPension = administradoraPension;
 		this.fechaAfiliacionPension = fechaAfiliacionPension;
+		
+		DroolsConfig.aplicarReglasDrools(this);
 	}
 
 	public String getCodigo() {
